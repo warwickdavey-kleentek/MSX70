@@ -59,6 +59,15 @@ img{max-width:100%;display:block}
 .brand .tag{margin-top:9px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#7fa8d6;font-weight:600}
 .nav ol{list-style:none;margin:0;padding:16px 0 60px;counter-reset:sec}
 .nav .group{padding:18px 26px 6px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#5e89bd;font-weight:700}
+.toggle-all-btn{
+  display:block;width:calc(100% - 52px);margin:6px 26px 4px;padding:8px 12px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);
+  color:#cfe0f2;font-size:12.5px;font-weight:600;border-radius:8px;cursor:pointer;
+  font-family:'Spline Sans',sans-serif;text-align:center;transition:.18s;
+}
+.toggle-all-btn:hover{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)}
+#mnav .toggle-all-btn{width:calc(100% - 44px);margin:10px 22px 8px}
+@media print{.toggle-all-btn{display:none}}
 .nav li a{
   display:block;padding:8px 26px 8px 26px;color:#bcd2ec;font-size:14px;
   border-left:3px solid transparent;transition:.18s;
@@ -72,15 +81,23 @@ img{max-width:100%;display:block}
 
 /* ---------- Hero ---------- */
 .hero{
-  position:relative;color:#fff;overflow:hidden;
+  position:relative;color:#fff;overflow:hidden;min-height:480px;
   background:linear-gradient(120deg,#062f5b 0%,#0b4f9e 60%,#1877d2 120%);
 }
-.hero::after{content:"";position:absolute;inset:0;
+/* Product photo, right-aligned, shown in full (not cropped) — left edge fades into the gradient */
+.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:url('assets/hero-machine.jpg') right center/contain no-repeat;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,transparent 38%,#000 62%);
+  mask-image:linear-gradient(to right,transparent 0%,transparent 38%,#000 62%);
+}
+/* Brand-blue tint over the photo, plus the diagonal texture/highlight */
+.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
+    linear-gradient(rgba(11,79,158,.55),rgba(11,79,158,.55)),
     radial-gradient(900px 400px at 85% -10%,rgba(255,255,255,.16),transparent 60%),
     repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 22px);
-  pointer-events:none}
-.hero .wrap{padding:64px 40px 0;position:relative;z-index:1}
+}
+.hero .wrap{padding:64px 40px 56px;position:relative;z-index:1}
 .hero .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#9ec4ee;font-weight:600;margin-bottom:18px}
 .hero h1{
   font-family:'Archivo',sans-serif;font-weight:800;line-height:1.04;
@@ -93,13 +110,6 @@ img{max-width:100%;display:block}
   background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
   padding:7px 14px;border-radius:100px;font-size:12.5px;font-weight:500;letter-spacing:.02em;backdrop-filter:blur(4px);
 }
-.hero-figure{margin:42px 0 0;position:relative;z-index:1}
-.hero-figure img{
-  width:100%;max-width:420px;margin:0 auto;border-radius:14px 14px 0 0;
-  box-shadow:0 -2px 0 rgba(255,255,255,.25),var(--shadow-lg);
-  border:1px solid rgba(255,255,255,.2);border-bottom:none;background:#fff;
-}
-
 /* ---------- Sections ---------- */
 section{padding:54px 0 8px;scroll-margin-top:20px}
 .kicker{
@@ -255,7 +265,17 @@ footer a{color:#7fb0e6}
   .nav{display:none}
 }
 @media(max-width:680px){
-  .wrap{padding:0 22px}.hero .wrap{padding:46px 22px 0}
+  .wrap{padding:0 22px}.hero .wrap{padding:46px 22px 44px}
+  .hero{min-height:0}
+  .hero::before{
+    background-size:220px auto;background-position:bottom -10px right -10px;
+    -webkit-mask-image:linear-gradient(135deg,transparent 0%,transparent 18%,#000 50%);
+    mask-image:linear-gradient(135deg,transparent 0%,transparent 18%,#000 50%);
+  }
+  .hero::after{background:
+    linear-gradient(rgba(11,79,158,.72),rgba(11,79,158,.72)),
+    radial-gradient(900px 400px at 85% -10%,rgba(255,255,255,.16),transparent 60%),
+    repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 22px)}
   .stages,.toc-grid,.inline-2,.gallery{grid-template-columns:1fr}
   .spectable td:first-child{width:auto}
 }
@@ -343,7 +363,7 @@ figure img{cursor:zoom-in}
   .shell{display:block}
   .main{min-width:0}
   .wrap{max-width:none;padding:0 6mm}
-  .hero .wrap{padding:24px 6mm 0}
+  .hero .wrap{padding:24px 6mm}
   body{font-size:11pt}
   section{padding:18px 0 4px}
   figure,table,.note,.stage,.toc-card,.dl-card,.lamp,.inline-2,.gallery figure{break-inside:avoid}
@@ -366,6 +386,7 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
   <button onclick="document.getElementById('mnav').classList.toggle('open')">Contents ▾</button>
 </div>
 <nav id="mnav">
+  <button type="button" class="toggle-all-btn">Collapse all sections</button>
   <a href="#quickstart">⚡ Quick Start</a>
   <a href="#s1">1 · Introduction</a>
   <a href="#s2">2 · Safety</a>
@@ -388,6 +409,7 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
       <div class="tag">Australia · Industrial Cleaning Systems</div>
     </div>
     <div class="group">MSX70 — System Manual</div>
+    <button type="button" class="toggle-all-btn">Collapse all sections</button>
     <ol>
       <li><a href="#quickstart">⚡ Quick Start</a></li>
       <li><a href="#s1">1 · Introduction</a></li>
@@ -419,7 +441,6 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
           <span class="chip">2 × 1,800 W heaters</span>
           <span class="chip">MiSonics touch controller</span>
         </div>
-        <div class="hero-figure"><img src="assets/hero-machine.jpg" alt="MSX70 Ultrasonic Cleaner"></div>
       </div>
     </header>
 
@@ -1121,11 +1142,13 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
     var collapsed=sec.classList.toggle('collapsed');
     var head=sec.querySelector('.sec-head');
     if(head) head.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    if(window.__updateToggleAllButtons) window.__updateToggleAllButtons();
   }
   function expand(sec){
     sec.classList.remove('collapsed');
     var head=sec.querySelector('.sec-head');
     if(head) head.setAttribute('aria-expanded','true');
+    if(window.__updateToggleAllButtons) window.__updateToggleAllButtons();
   }
   document.querySelectorAll('section > .sec-head').forEach(function(head){
     var sec=head.closest('section');
@@ -1145,6 +1168,36 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
   });
   window.addEventListener('hashchange',function(){ expandTarget(location.hash); });
   if(location.hash) expandTarget(location.hash);
+})();
+
+// Collapse-all / Expand-all toggle (sidebar + mobile nav)
+(function(){
+  var buttons=[].slice.call(document.querySelectorAll('.toggle-all-btn'));
+  function sections(){
+    return [].slice.call(document.querySelectorAll('section')).filter(function(s){
+      return s.querySelector(':scope > .sec-head');
+    });
+  }
+  function updateButtons(){
+    var secs=sections();
+    var allCollapsed=secs.length>0 && secs.every(function(s){ return s.classList.contains('collapsed'); });
+    buttons.forEach(function(b){ b.textContent = allCollapsed ? 'Expand all sections' : 'Collapse all sections'; });
+  }
+  buttons.forEach(function(b){
+    b.addEventListener('click',function(){
+      var secs=sections();
+      var allCollapsed=secs.length>0 && secs.every(function(s){ return s.classList.contains('collapsed'); });
+      var collapse=!allCollapsed; // if everything's already collapsed, this expands; otherwise collapses
+      secs.forEach(function(s){
+        s.classList.toggle('collapsed', collapse);
+        var head=s.querySelector('.sec-head');
+        if(head) head.setAttribute('aria-expanded', collapse?'false':'true');
+      });
+      updateButtons();
+    });
+  });
+  window.__updateToggleAllButtons=updateButtons;
+  updateButtons();
 })();
 </script>
 </body>
