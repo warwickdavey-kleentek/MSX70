@@ -81,23 +81,24 @@ img{max-width:100%;display:block}
 
 /* ---------- Hero ---------- */
 .hero{
-  position:relative;color:#fff;overflow:hidden;min-height:480px;
+  position:relative;color:#fff;overflow:hidden;
   background:linear-gradient(120deg,#062f5b 0%,#0b4f9e 60%,#1877d2 120%);
 }
-/* Product photo, right-aligned, shown in full (not cropped) — left edge fades into the gradient */
-.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:url('assets/hero-machine.jpg') right center/contain no-repeat;
-  -webkit-mask-image:linear-gradient(to right,transparent 0%,transparent 38%,#000 62%);
-  mask-image:linear-gradient(to right,transparent 0%,transparent 38%,#000 62%);
-}
-/* Brand-blue tint over the photo, plus the diagonal texture/highlight */
-.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+.hero::after{content:"";position:absolute;inset:0;
   background:
-    linear-gradient(rgba(11,79,158,.55),rgba(11,79,158,.55)),
     radial-gradient(900px 400px at 85% -10%,rgba(255,255,255,.16),transparent 60%),
     repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 22px);
+  pointer-events:none}
+.hero .wrap{
+  padding:56px 40px;position:relative;z-index:1;
+  display:flex;align-items:center;gap:40px;flex-wrap:wrap;
 }
-.hero .wrap{padding:64px 40px 56px;position:relative;z-index:1}
+.hero-figure{flex:0 0 300px;max-width:300px}
+.hero-figure img{
+  width:100%;border-radius:14px;background:#fff;
+  box-shadow:var(--shadow-lg);border:1px solid rgba(255,255,255,.2);
+}
+.hero-text{flex:1 1 380px;min-width:280px}
 .hero .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#9ec4ee;font-weight:600;margin-bottom:18px}
 .hero h1{
   font-family:'Archivo',sans-serif;font-weight:800;line-height:1.04;
@@ -265,17 +266,8 @@ footer a{color:#7fb0e6}
   .nav{display:none}
 }
 @media(max-width:680px){
-  .wrap{padding:0 22px}.hero .wrap{padding:46px 22px 44px}
-  .hero{min-height:0}
-  .hero::before{
-    background-size:220px auto;background-position:bottom -10px right -10px;
-    -webkit-mask-image:linear-gradient(135deg,transparent 0%,transparent 18%,#000 50%);
-    mask-image:linear-gradient(135deg,transparent 0%,transparent 18%,#000 50%);
-  }
-  .hero::after{background:
-    linear-gradient(rgba(11,79,158,.72),rgba(11,79,158,.72)),
-    radial-gradient(900px 400px at 85% -10%,rgba(255,255,255,.16),transparent 60%),
-    repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 22px)}
+  .wrap{padding:0 22px}.hero .wrap{padding:46px 22px}
+  .hero-figure{flex:0 0 auto;max-width:220px;margin:0 auto}
   .stages,.toc-grid,.inline-2,.gallery{grid-template-columns:1fr}
   .spectable td:first-child{width:auto}
 }
@@ -431,15 +423,18 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
     <!-- HERO -->
     <header class="hero">
       <div class="wrap">
-        <div class="eyebrow">Operating Instructions &amp; Service Manual</div>
-        <h1>MSX70<br><span>Ultrasonic Cleaner</span></h1>
-        <p class="lede">A self-contained, single-tank ultrasonic cleaning system combining powerful ultrasonics and heating, controlled from a Kleentek MiSonics touch panel. Supplied and supported by Kleentek&nbsp;Australia.</p>
-        <div class="meta">
-          <span class="chip">Single Tank Version</span>
-          <span class="chip">70 L · 316L SS tank</span>
-          <span class="chip">1,800 W · 40 kHz ultrasonics</span>
-          <span class="chip">2 × 1,800 W heaters</span>
-          <span class="chip">MiSonics touch controller</span>
+        <div class="hero-figure"><img src="assets/hero-machine.jpg" alt="MSX70 Ultrasonic Cleaner"></div>
+        <div class="hero-text">
+          <div class="eyebrow">Operating Instructions &amp; Service Manual</div>
+          <h1>MSX70<br><span>Ultrasonic Cleaner</span></h1>
+          <p class="lede">A self-contained, single-tank ultrasonic cleaning system combining powerful ultrasonics and heating, controlled from a Kleentek MiSonics touch panel. Supplied and supported by Kleentek&nbsp;Australia.</p>
+          <div class="meta">
+            <span class="chip">Single Tank Version</span>
+            <span class="chip">70 L · 316L SS tank</span>
+            <span class="chip">1,800 W · 40 kHz ultrasonics</span>
+            <span class="chip">2 × 1,800 W heaters</span>
+            <span class="chip">MiSonics touch controller</span>
+          </div>
         </div>
       </div>
     </header>
