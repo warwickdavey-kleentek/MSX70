@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MSX70 Ultrasonic Cleaner — User Manual | Kleentek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#132840;
+    --navy-light:#1d3a5c;
+    --red:#c8202b;
+    --red-dark:#a11a23;
+    --ink:#1c2732;
+    --muted:#5b6b7a;
+    --paper:#ffffff;
+    --bg:#f4f6f8;
+    --line:#e1e6ea;
+    --warn-bg:#fff4f3;
+    --warn-line:#e8a5a9;
+    --note-bg:#eef5ff;
+    --note-line:#a9c7ec;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Archivo','IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.55;
+  }
+  a{color:var(--red-dark);}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:940px;margin:0 auto;padding:0 24px;}
+
+  /* ---- Cover ---- */
+  .cover{
+    background:linear-gradient(160deg,var(--navy) 0%,var(--navy-light) 100%);
+    color:#fff;
+    padding:56px 0 40px;
+  }
+  .cover .wrap{display:flex;gap:36px;align-items:center;flex-wrap:wrap;}
+  .cover-text{flex:1 1 320px;min-width:280px;}
+  .cover-eyebrow{
+    text-transform:uppercase;letter-spacing:.12em;font-size:12.5px;font-weight:700;
+    color:#ff9fa4;margin-bottom:10px;
+  }
+  .cover h1{font-size:2.35rem;line-height:1.12;margin:0 0 10px;font-weight:800;}
+  .cover .sub{font-size:1.05rem;color:#c9d6e4;margin:0 0 18px;max-width:46ch;}
+  .cover-meta{font-size:13.5px;color:#9fb2c6;display:flex;gap:18px;flex-wrap:wrap;}
+  .cover-meta strong{color:#fff;font-weight:600;}
+  .cover-img{flex:0 1 320px;min-width:220px;max-width:340px;}
+  .cover-img img{border-radius:10px;box-shadow:0 18px 40px rgba(0,0,0,.35);}
+  .cover-actions{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 18px;border-radius:8px;font-weight:700;font-size:14px;
+    text-decoration:none;border:1px solid transparent;cursor:pointer;
+  }
+  .btn-red{background:var(--red);color:#fff;}
+  .btn-red:hover{background:var(--red-dark);}
+  .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.35);}
+  .btn-ghost:hover{background:rgba(255,255,255,.16);}
+
+  /* ---- Quick nav ---- */
+  .quicknav{
+    background:#fff;border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+  }
+  .quicknav .wrap{display:flex;gap:22px;padding:12px 24px;overflow-x:auto;white-space:nowrap;}
+  .quicknav a{
+    color:var(--navy);text-decoration:none;font-weight:700;font-size:13.5px;
+    text-transform:uppercase;letter-spacing:.03em;padding:6px 2px;border-bottom:2px solid transparent;
+  }
+  .quicknav a:hover{border-bottom-color:var(--red);}
+
+  /* ---- Generic section ---- */
+  section{padding:44px 0;}
+  section.alt{background:#fff;}
+  h2.chapter{
+    font-size:1.7rem;margin:0 0 6px;color:var(--navy);font-weight:800;
+    display:flex;align-items:baseline;gap:10px;
+  }
+  h2.chapter .num{color:var(--red);}
+  .chapter-intro{color:var(--muted);margin:0 0 28px;max-width:70ch;}
+  h3{font-size:1.2rem;color:var(--navy);margin:34px 0 10px;font-weight:700;}
+  h3 .num{color:var(--red);margin-right:6px;}
+  h4{font-size:1rem;color:var(--navy);margin:22px 0 8px;font-weight:700;}
+  p{margin:0 0 14px;}
+  ul,ol{margin:0 0 14px;padding-left:22px;}
+  li{margin-bottom:6px;}
+  table{border-collapse:collapse;width:100%;margin:16px 0 22px;font-size:14.5px;}
+  table th, table td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+  table th{background:var(--navy);color:#fff;font-weight:700;}
+  table tr:nth-child(even) td{background:#f8fafb;}
+
+  /* ---- Callouts ---- */
+  .callout{
+    border-radius:8px;padding:14px 16px;margin:16px 0;font-size:14.5px;
+    border:1px solid;
+  }
+  .callout-warn{background:var(--warn-bg);border-color:var(--warn-line);}
+  .callout-warn::before{content:"⚠ WARNING";display:block;font-weight:800;color:var(--red-dark);font-size:12px;letter-spacing:.04em;margin-bottom:5px;}
+  .callout-note{background:var(--note-bg);border-color:var(--note-line);}
+  .callout-note::before{content:"ℹ NOTE";display:block;font-weight:800;color:#2a5ea0;font-size:12px;letter-spacing:.04em;margin-bottom:5px;}
+
+  /* ---- Figures ---- */
+  .figure{margin:18px 0 24px;}
+  .figure img{
+    border:1px solid var(--line);border-radius:8px;cursor:zoom-in;
+    background:#fff;
+  }
+  .figure figcaption{font-size:13px;color:var(--muted);margin-top:8px;text-align:center;}
+  .figure-row{display:flex;gap:18px;flex-wrap:wrap;}
+  .figure-row .figure{flex:1 1 260px;min-width:220px;}
+  .figure-wide img{max-height:340px;object-fit:contain;margin:0 auto;}
+
+  /* ---- Quick start ---- */
+  .qs-card{
+    background:#fff;border:1px solid var(--line);border-left:5px solid var(--red);
+    border-radius:8px;padding:18px 20px;margin-bottom:16px;
+  }
+  .qs-card h4{margin-top:0;color:var(--navy);}
+  .qs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:720px){.qs-grid{grid-template-columns:1fr;}}
+  .step-num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;
+    font-size:12px;font-weight:800;margin-right:8px;flex-shrink:0;
+  }
+
+  /* ---- TOC ---- */
+  .toc-cols{columns:2;column-gap:36px;}
+  @media (max-width:700px){.toc-cols{columns:1;}}
+  .toc-cols ul{list-style:none;padding:0;margin:0 0 18px;break-inside:avoid;}
+  .toc-cols > ul{margin:0;}
+  .toc-h1{font-weight:800;color:var(--navy);margin-top:14px;}
+  .toc-h1 a{color:var(--navy);text-decoration:none;}
+  .toc-cols li li{font-size:14px;margin:3px 0;}
+  .toc-cols li li a{color:var(--muted);text-decoration:none;}
+  .toc-cols a:hover{color:var(--red-dark);text-decoration:underline;}
+  .toc-page{float:right;color:#b7c0c8;font-size:12px;}
+
+  /* ---- Spare parts / tables emphasis ---- */
+  .pill{
+    display:inline-block;background:var(--navy);color:#fff;font-size:11.5px;
+    padding:2px 9px;border-radius:99px;font-weight:700;letter-spacing:.03em;
+  }
+
+  /* ---- Footer ---- */
+  footer{background:var(--navy);color:#c9d6e4;padding:36px 0;font-size:13.5px;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+  footer a{color:#fff;}
+  footer strong{color:#fff;}
+
+  /* ---- Back to top ---- */
+  .totop{
+    position:fixed;right:20px;bottom:20px;background:var(--navy);color:#fff;
+    width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    text-decoration:none;font-size:18px;box-shadow:0 6px 18px rgba(0,0,0,.25);opacity:.9;
+  }
+  .totop:hover{background:var(--red);}
+
+  /* ---- Lightbox ---- */
+  #lightbox{
+    display:none;position:fixed;inset:0;background:rgba(10,16,24,.9);z-index:1000;
+    align-items:center;justify-content:center;padding:30px;cursor:zoom-out;
+  }
+  #lightbox.open{display:flex;}
+  #lightbox img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.5);}
+
+  @media print{
+    .quicknav,.totop,.cover-actions{display:none;}
+    section{padding:14px 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="wrap">
+    <div class="cover-text">
+      <div class="cover-eyebrow">Kleentek Australia · Equipment Manual</div>
+      <h1>MSX70 Ultrasonic Cleaner</h1>
+      <p class="sub">Single Tank Version — installation, safe operation, MiSonics controller guide and maintenance for the MSX70 ultrasonic cleaning system.</p>
+      <div class="cover-meta">
+        <span><strong>Revision</strong> 4 · 15 Jan 2026</span>
+        <span><strong>Support</strong> 1300 79 73 79</span>
+        <span><strong>Model</strong> MSX70 — Single Tank</span>
+      </div>
+      <div class="cover-actions">
+        <a href="#quickstart" class="btn btn-red">⚡ Quick Start Guide</a>
+        <a href="#toc" class="btn btn-ghost">📑 Table of Contents</a>
+        <a href="MSX70-Manual.pdf" class="btn btn-ghost" download>⬇ Download PDF</a>
+      </div>
+    </div>
+    <div class="cover-img">
+      <img src="assets/hero-machine.jpg" alt="MSX70 Ultrasonic Cleaner isometric view">
+    </div>
+  </div>
+</div>
+
+<div class="quicknav">
+  <div class="wrap">
+    <a href="#toc">Contents</a>
+    <a href="#quickstart">Quick Start</a>
+    <a href="#s1">Introduction</a>
+    <a href="#s2">Safety</a>
+    <a href="#s3">System Description</a>
+    <a href="#s4">Installation</a>
+    <a href="#s5">Operation</a>
+    <a href="#s6">Maintenance</a>
+    <a href="#s7">Ultrasonic Cleaning</a>
+    <a href="#s8">Spare Parts</a>
+    <a href="#s9">PM Schedule</a>
+    <a href="#downloads">Downloads</a>
+  </div>
+</div>
+
+<!-- ============ TABLE OF CONTENTS ============ -->
+<section id="toc">
+  <div class="wrap">
+    <h2 class="chapter"><span class="num">§</span> Table of Contents</h2>
+    <p class="chapter-intro">Jump straight to any section. This HTML manual mirrors the structure of the original Kleentek MSX70 user manual PDF, with a Quick Start Guide added up front for first-time setup.</p>
+    <div class="toc-cols">
+      <ul>
+        <li class="toc-h1"><a href="#quickstart">⚡ Quick Start Guide</a></li>
+        <li class="toc-h1"><a href="#s1">1. Introduction</a></li>
+        <li class="toc-h1"><a href="#s2">2. Safety</a>
+          <ul>
+            <li><a href="#s2-1">2.1 System Documentation</a></li>
+            <li><a href="#s2-2">2.2 Warnings and Cautions</a></li>
+            <li><a href="#s2-3">2.3 Safe Operation</a></li>
+            <li><a href="#s2-3-1">2.3.1 Cleaners / Chemicals / PPE</a></li>
+            <li><a href="#s2-3-2">2.3.2 Lockout / Tag-out</a></li>
+            <li><a href="#s2-3-3">2.3.3 Live Circuits</a></li>
+          </ul>
+        </li>
+        <li class="toc-h1"><a href="#s3">3. System Description</a>
+          <ul>
+            <li><a href="#s3-1">3.1 Equipment Specification</a></li>
+            <li><a href="#s3-2">3.2 Overview</a></li>
+            <li><a href="#s3-2-1">3.2.1 Front View</a></li>
+            <li><a href="#s3-2-2">3.2.2 Right View</a></li>
+            <li><a href="#s3-2-3">3.2.3 Top View</a></li>
+            <li><a href="#s3-2-4">3.2.4 Rear View</a></li>
+            <li><a href="#s3-2-5">3.2.5 Left View</a></li>
+            <li><a href="#s3-3">3.3 System Components</a></li>
+            <li><a href="#s3-3-1">3.3.1 Generators</a></li>
+            <li><a href="#s3-3-2">3.3.2 Transducers</a></li>
+            <li><a href="#s3-3-3">3.3.3 Level Sensors</a></li>
+            <li><a href="#s3-3-4">3.3.4 Heaters</a></li>
+            <li><a href="#s3-3-5">3.3.5 Drains</a></li>
+            <li><a href="#s3-3-6">3.3.6 Baskets</a></li>
+          </ul>
+        </li>
+        <li class="toc-h1"><a href="#s4">4. Installation</a>
+          <ul>
+            <li><a href="#s4-1">4.1 Receiving</a></li>
+            <li><a href="#s4-2">4.2 Placement</a></li>
+            <li><a href="#s4-3">4.3 Utility Connections</a></li>
+            <li><a href="#s4-3-1">4.3.1 Power Connection</a></li>
+            <li><a href="#s4-3-2">4.3.2 Drain Connection</a></li>
+            <li><a href="#s4-4">4.4 Machine Test &amp; Setup</a></li>
+            <li><a href="#s4-5">4.5 Filling the Tank</a></li>
+            <li><a href="#s4-6">4.6 Placing Items in the Tank</a></li>
+          </ul>
+        </li>
+        <li class="toc-h1"><a href="#s5">5. System Operation</a>
+          <ul>
+            <li><a href="#s5-1">5.1 Alarms</a></li>
+            <li><a href="#s5-2">5.2 Running an Ultrasonic Cleaning Cycle</a></li>
+            <li><a href="#s5-3">5.3 Using the MiSonics Controller</a></li>
+            <li><a href="#s5-3-1">5.3.1 Select a Program</a></li>
+            <li><a href="#s5-3-2">5.3.2 Edit a Program</a></li>
+            <li><a href="#s5-3-3">5.3.3 Deactivating the Lid Sensor</a></li>
+            <li><a href="#s5-3-4">5.3.4 Activating the Lid Sensor</a></li>
+            <li><a href="#s5-3-5">5.3.5 Warning / Error Screens</a></li>
+          </ul>
+        </li>
+        <li class="toc-h1"><a href="#s6">6. Maintenance</a>
+          <ul>
+            <li><a href="#s6-1">6.1 Preventative Maintenance</a></li>
+            <li><a href="#s6-2">6.2 Draining the Tank</a></li>
+            <li><a href="#s6-3">6.3 Heater Replacement</a></li>
+          </ul>
+        </li>
+        <li class="toc-h1"><a href="#s7">7. Ultrasonic Cleaning</a>
+          <ul>
+            <li><a href="#s7-1">7.1 Temperature</a></li>
+            <li><a href="#s7-2">7.2 Degassing</a></li>
+            <li><a href="#s7-3">7.3 Parts Exposure</a></li>
+            <li><a href="#s7-4">7.4 Parts Materials</a></li>
+            <li><a href="#s7-5">7.5 Liquid Levels</a></li>
+            <li><a href="#s7-6">7.6 Cavitation Erosion</a></li>
+          </ul>
+        </li>
+        <li class="toc-h1"><a href="#s8">8. Spare Parts</a>
+          <ul>
+            <li><a href="#s8-1">8.1 Consumables</a></li>
+            <li><a href="#s8-2">8.2 Long Term / Critical Items</a></li>
+          </ul>
+        </li>
+        <li class="toc-h1"><a href="#s9">9. Preventative Maintenance (Specific)</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUICK START ============ -->
+<section class="alt" id="quickstart">
+  <div class="wrap">
+    <h2 class="chapter"><span class="num">⚡</span> Quick Start Guide</h2>
+    <p class="chapter-intro">A condensed run-through for getting the MSX70 powered up and running its first cleaning cycle. This does <strong>not</strong> replace the full manual below — read Section 2 (Safety) in full before operating the machine.</p>
+
+    <div class="qs-grid">
+      <div class="qs-card">
+        <h4><span class="step-num">1</span>Before you start — safety essentials</h4>
+        <ul>
+          <li>Never immerse hands in the tank or cleaning solution — ultrasonic energy and chemicals both pose a risk.</li>
+          <li>Some external surfaces run hot (45–90°C). Wear protective clothing when working at temperature.</li>
+          <li>Only use Kleentek-formulated ultrasonic cleaning chemicals.</li>
+          <li>Check the chemical SDS before handling any cleaning solution.</li>
+          <li>Never drop heavy items into the tank — always use the basket.</li>
+        </ul>
+      </div>
+      <div class="qs-card">
+        <h4><span class="step-num">2</span>Placement</h4>
+        <ul>
+          <li>Position on a level surface in a well-ventilated area.</li>
+          <li>Lock the castor wheels once in position.</li>
+          <li>Leave clearance above the machine to open the lid and lift the basket in/out.</li>
+        </ul>
+      </div>
+      <div class="qs-card">
+        <h4><span class="step-num">3</span>Power up</h4>
+        <ul>
+          <li>Single Phase, 10 Amp, 240V, 50/60Hz — power cable and plug are supplied.</li>
+          <li>Connect the plug, then switch on power at the outlet.</li>
+          <li>The LCD touch screen and the red push button will illuminate.</li>
+        </ul>
+      </div>
+      <div class="qs-card">
+        <h4><span class="step-num">4</span>Fill the tank</h4>
+        <ul>
+          <li>Confirm all drains are closed first.</li>
+          <li>Fill with water to ~75% using a hose.</li>
+          <li>Add the chemical solution, then top up until the level sensor is fully covered.</li>
+        </ul>
+        <div class="callout callout-warn" style="margin-bottom:0;">Do not add chemicals before completing the Machine Test &amp; Setup procedure the very first time the machine is used (Section 4.4).</div>
+      </div>
+      <div class="qs-card">
+        <h4><span class="step-num">5</span>Load parts</h4>
+        <ul>
+          <li>Always place parts in the supplied basket — never directly on the tank base.</li>
+          <li>Position parts to avoid trapped air pockets (e.g. blind holes facing down).</li>
+        </ul>
+      </div>
+      <div class="qs-card">
+        <h4><span class="step-num">6</span>Run a cycle</h4>
+        <ul>
+          <li>Confirm tank temperature and liquid level are correct.</li>
+          <li>On the MiSonics controller, press the MiSonics icon → select a program (1–4) → confirm.</li>
+          <li>The main screen shows process time, tank temperature and tank level status while running.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4 style="margin-top:28px;">Common warning screens</h4>
+    <div class="figure-row">
+      <figure class="figure">
+        <img src="assets/screens/warn-low-level.jpg" alt="Low tank level warning screen" onclick="openLightbox(this)">
+        <figcaption><strong>Low Tank Level</strong> — fill the tank until the level sensor is covered.</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="assets/screens/warn-lid-open.jpg" alt="Lid open warning screen" onclick="openLightbox(this)">
+        <figcaption><strong>Lid Open</strong> — close the lid to start the program.</figcaption>
+      </figure>
+    </div>
+
+    <div class="callout callout-note">
+      Full alarm list, controller walkthrough and maintenance schedule are further down this page — use the <a href="#toc">Table of Contents</a> to jump to any section, or the nav bar above.
+    </div>
+  </div>
+</section>
+
+<!-- ============ 1. INTRODUCTION ============ -->
+<section id="s1">
+  <div class="wrap">
+    <h2 class="chapter"><span class="num">1.</span> Introduction</h2>
+    <p><strong>MSX70 Ultrasonic Cleaner — User Manual (Single Tank Version).</strong> This model does not contain a weir or filtration system.</p>
+    <p>To ensure your machinery operates at its full potential it is essential that this manual is read and adhered to. This manual provides details on how to install, operate and safely maintain the MSX70 Ultrasonic Cleaner, and provides guidelines on how to check its performance and routinely care for your equipment to ensure long-lasting and efficient operation.</p>
+    <h3>Support</h3>
+    <p>Should you have any problems, questions or require further information, please feel free to contact us.</p>
+    <p><strong>Australia wide:</strong> 1300 79 73 79 &nbsp;·&nbsp; <strong>International:</strong> +61 7 5479 0566</p>
+    <p style="color:var(--muted);font-size:13.5px;">Revision 4 — last modified 15 January 2026. Kleentek Australia · Copyright to Total Tank Solutions Pty Ltd t/a Kleentek, ABN 66 122 438 457.</p>
+  </div>
+</section>
+
+<!-- ============ 2. SAFETY ============ -->
+<section class="alt" id="s2">
+  <div class="wrap">
+    <h2 class="chapter"><span class="num">2.</span> Safety</h2>
+    <p class="chapter-intro">This section provides the information needed to ensure safe operation of the MSX70 Ultrasonic Cleaner.</p>
+
+    <h3 id="s2-1"><span class="num">2.1</span>System Documentation</h3>
+    <p>Read this and any other accompanying manufacturers' manuals completely before installing or operating your cleaning system. This equipment should be installed, operated, and maintained only by competent and qualified personnel who are fully aware of potential hazards.</p>
+    <p>Warnings and cautions are for the protection of equipment, property and personnel. It is important to adhere to all Workplace Health and Safety (WH&amp;S) policies and procedures. Personal Protective Equipment (PPE) may be needed relevant to warnings, cautions or instructions in this document.</p>
+    <div class="callout callout-warn">All warnings and cautions must be followed to ensure safe machine operation is conducted.</div>
+
+    <h3 id="s2-2"><span class="num">2.2</span>Warnings and Cautions</h3>
+    <ul>
+      <li>Do not open electrical enclosures or panels without first turning off power and isolating the machine. This should be done by qualified personnel only (e.g. a licensed electrician).</li>
+      <li>Do not immerse hands or other parts of the body in the ultrasonic cleaning tank or the cleaning solution — risk of skin irritation from chemicals/contaminants and exposure to high-intensity ultrasonic energy.</li>
+      <li>Ultrasonic energy is measurable by sound meters and OSHA sound constraints may apply — know your environment's sound levels and wear hearing protection if necessary.</li>
+      <li>Be fully aware of a chemical's characteristics and health/safety issues before working with it. Wear suitable protective clothing and refer to the chemical SDS prior to use.</li>
+      <li>Some surfaces run hot (45–90°C) — the two stainless steel filter housings, associated pipe work on the side of the machine, and all internal pipe work behind service panels. Warning signage marks these locations. Wear protective clothing at high operating temperatures.</li>
+      <li>Appropriate manual handling and lifting training must be given to all operator personnel.</li>
+      <li>Do not operate this equipment unless installed in accordance with this manual.</li>
+      <li>Be sure the system is connected to a power supply matching the ratings indicated on the system.</li>
+      <li>Ensure the generator(s) are connected correctly and placed in a safe position.</li>
+      <li>Do not operate the ultrasonic generators in ambient air temperatures above 45°C.</li>
+      <li>Do not attempt to operate the system unless the tank is filled to the appropriate level with water/cleaning solution.</li>
+      <li>Never drop heavy objects into the tank. Always use a basket to raise or lower parts into the tank.</li>
+      <li>Treat the tank with care — scratches or dents can reduce tank life.</li>
+      <li>Do not operate the system for longer than necessary, and never with volatile, explosive, combustible or acidic liquids.</li>
+      <li>Do not move the cleaning system without first draining the tank and disconnecting it from the power supply.</li>
+      <li>Know the boiling point of the liquids in use and never allow them to boil, or run near boiling point — this can permanently damage the system and voids warranty.</li>
+      <li>Maximum recommended fluid operating temperature is <strong>40–70°C</strong>.</li>
+      <li>Only use Kleentek-formulated and approved ultrasonic cleaning chemicals to ensure optimal cavitation.</li>
+      <li>Remove rings, watches and other jewellery/metallic objects before maintenance activities unless workplace procedures specifically allow it.</li>
+    </ul>
+
+    <h3 id="s2-3"><span class="num">2.3</span>Safe Operation</h3>
+    <p>The following precautions are general safety precautions — based on Workplace Health and Safety recommendations — that must be understood and applied across many phases of operation and maintenance to protect personal safety, health and property.</p>
+
+    <h4 id="s2-3-1"><span class="num">2.3.1</span>Cleaners / Chemicals / Personal Protection</h4>
+    <p>Some cleaning agents and chemicals have adverse effects on skin, eyes and the respiratory tract. Observe manufacturers' warning labels and SDS instructions for proper handling, storage and disposal, and current safety directives. Use only as authorised, wear protective clothing as directed by the SDS, and consult the designated safety officer for specific protection equipment and ventilation requirements.</p>
+
+    <h4 id="s2-3-2"><span class="num">2.3.2</span>Lockout / Tag-out</h4>
+    <p>Be aware of hazards associated with unguarded machinery parts, capacitors, gaseous and wet pipe systems, spring-loaded devices, etc. Lockout and tag-out the energy source prior to performing maintenance, adjustments, or other procedures that would bypass safety guards, barriers, or otherwise expose personnel to hazardous energy sources.</p>
+
+    <h4 id="s2-3-3"><span class="num">2.3.3</span>Live Circuits</h4>
+    <p>Observe all safety requirements at all times. Do not replace components or make internal adjustments while the machine is connected to the electrical supply. Electrical charge is retained by capacitors — danger may exist even with system power off. Always turn off the power and unplug, then discharge and ground a circuit before working on or around it. Adhere to all lockout/tag-out requirements.</p>
+  </div>
+</section>
+
+<!-- ============ 3. SYSTEM DESCRIPTION ============ -->
+<section id="s3">
+  <div class="wrap">
+    <h2 class="chapter"><span class="num">3.</span> System Description</h2>
+    <p class="chapter-intro">The MSX70 Ultrasonic Cleaner is a self-contained ultrasonic cleaner featuring powerful ultrasonics and heating.</p>
+
+    <h3 id="s3-1"><span class="num">3.1</span>Equipment Specification</h3>
+    <table>
+      <tr><th>Feature</th><th>Specification</th></tr>
+      <tr><td>Ultrasonic Tank</td><td>316L Stainless Steel 2.0</td></tr>
+      <tr><td>Ultrasonic Tank Dimensions</td><td>600 mm (L) × 400 mm (W) × 300 mm (D)</td></tr>
+      <tr><td>Ultrasonic Tank Housing</td><td>Painted steel</td></tr>
+      <tr><td>Transducers</td><td>Chrome plated immersible transducer block</td></tr>
+      <tr><td>Ultrasonic Power</td><td>1,800 Watts / 40 kHz</td></tr>
+      <tr><td>Heaters</td><td>2 × 1,800 Watts</td></tr>
+      <tr><td>Power Supply</td><td>10 Amp</td></tr>
+      <tr><td>Level Protection</td><td>Main tank level sensor</td></tr>
+      <tr><td>Drains</td><td>Main tank manual ball valve</td></tr>
+      <tr><td>Liquid Volume</td><td>Approx. 70 litres</td></tr>
+      <tr><td>Parts Basket</td><td>S/S 316 woven mesh parts basket</td></tr>
+    </table>
+
+    <h3 id="s3-2"><span class="num">3.2</span>Overview</h3>
+    <p>A general overview of the MSX70 is shown below. All side panels can be removed to access internal components.</p>
+
+    <h4 id="s3-2-1"><span class="num">3.2.1</span>Front View</h4>
+    <div class="figure-row">
+      <figure class="figure"><img src="assets/views/front-iso.jpg" alt="MSX70 front view isometric" onclick="openLightbox(this)"><figcaption>Front view — isometric</figcaption></figure>
+      <figure class="figure"><img src="assets/views/front-2d.jpg" alt="MSX70 front view 2D" onclick="openLightbox(this)"><figcaption>Front view — elevation</figcaption></figure>
+    </div>
+
+    <h4 id="s3-2-2"><span class="num">3.2.2</span>Right View</h4>
+    <div class="figure figure-wide"><img src="assets/views/right-2d.jpg" alt="MSX70 right view with protective panel" onclick="openLightbox(this)"><figcaption>Right side — with protective panel fitted</figcaption></div>
+
+    <h4 id="s3-2-3"><span class="num">3.2.3</span>Top View</h4>
+    <div class="figure-row">
+      <figure class="figure"><img src="assets/views/top-iso.jpg" alt="MSX70 top view isometric" onclick="openLightbox(this)"><figcaption>Isometric reference</figcaption></figure>
+      <figure class="figure"><img src="assets/views/top-2d.jpg" alt="MSX70 top view 2D" onclick="openLightbox(this)"><figcaption>Top view — plan</figcaption></figure>
+    </div>
+
+    <h4 id="s3-2-4"><span class="num">3.2.4</span>Rear View</h4>
+    <div class="figure-row">
+      <figure class="figure"><img src="assets/views/rear-iso.jpg" alt="MSX70 back view isometric" onclick="openLightbox(this)"><figcaption>Back view — isometric</figcaption></figure>
+      <figure class="figure"><img src="assets/views/rear-2d.jpg" alt="MSX70 back view with cover panels" onclick="openLightbox(this)"><figcaption>Back view — with cover panels</figcaption></figure>
+    </div>
+
+    <h4 id="s3-2-5"><span class="num">3.2.5</span>Left View</h4>
+    <div class="figure figure-wide"><img src="assets/views/left-2d.jpg" alt="MSX70 left view with cover panels" onclick="openLightbox(this)"><figcaption>Left side — with cover panels</figcaption></div>
+
+    <h3 id="s3-3"><span class="num">3.3</span>System Components</h3>
+
+    <h4 id="s3-3-1"><span class="num">3.3.1</span>Generators</h4>
+    <p>The MSX70 contains 1 × 1,800 Watt / 40 kHz generator, hard-wired directly into the system and located beneath the main ultrasonic tank. Each generator has one cooling fan at the rear of its casing, forming an integral part of its operation — the fan cycles on and off automatically to maintain generator temperature. Generators are accessible for maintenance by removing the front access panels.</p>
+    <div class="figure-row">
+      <figure class="figure"><img src="assets/components/generator-front.jpg" alt="Generator control panel front view" onclick="openLightbox(this)"><figcaption>Generator control panel — front view</figcaption></figure>
+      <figure class="figure"><img src="assets/components/generator-rear.jpg" alt="Generator control panel rear view" onclick="openLightbox(this)"><figcaption>Generator control panel — rear view</figcaption></figure>
+    </div>
+    <div class="callout callout-note">Connections between generators and transducers vary by model — they may be connected directly or via a junction box. The generator is pre-tuned to the ultrasonic transducers and controlled by the HMI via RS485; it should only be adjusted by a qualified service technician. Do not adjust the generator or its Address setting — this can cause HMI communication issues.</div>
+
+    <h4 id="s3-3-2"><span class="num">3.3.2</span>Transducers</h4>
+    <p>High-performance ultrasonic cleaning is provided by a high quality chrome-plated stainless steel BLT immersible transducer block located on the bottom of the tank. Each transducer element is bonded to the radiating surface of the block, powered by the 1 × 1,800 Watt / 40 kHz ultrasonic generator.</p>
+    <div class="figure-row">
+      <figure class="figure"><img src="assets/components/transducer.jpg" alt="Immersible ultrasonic transducer" onclick="openLightbox(this)"><figcaption>Immersible ultrasonic transducer</figcaption></figure>
+      <figure class="figure"><img src="assets/components/transducer-array.jpg" alt="Transducer element array" onclick="openLightbox(this)"><figcaption>Transducer element array</figcaption></figure>
+    </div>
+
+    <h4 id="s3-3-3"><span class="num">3.3.3</span>Level Sensors</h4>
+    <p>A low liquid level can damage the ultrasonic transducers and heaters. Liquid level protection prevents the machine operating below safe operational levels. The system has one conductivity level sensor mounted in the probe pocket of the main tank. Level protection must be de-activated (i.e. the tank filled correctly) before the system can initially be used.</p>
+    <table>
+      <tr><th>Level Protection Mode</th><th>Activated when</th><th>What happens</th><th>Deactivated when</th></tr>
+      <tr><td>Level Protection 1</td><td>Liquid level in the main tank is <em>below</em> the level sensor</td><td>Ultrasonics and heaters are disabled</td><td>Liquid level is <em>at/above</em> the level sensor</td></tr>
+    </table>
+
+    <h4 id="s3-3-4"><span class="num">3.3.4</span>Heaters</h4>
+    <p>Heat is provided by stainless steel immersion heaters — 2 units, "pocket" mounted on each side of the tank, accessible by removing the front, left and right side panels. The MSX70 automatically heats and maintains the liquid at a set temperature via the temperature controller.</p>
+    <div class="figure figure-wide"><img src="assets/components/heater.jpg" alt="Heater element" onclick="openLightbox(this)"><figcaption>Immersion heater element</figcaption></div>
+
+    <h4 id="s3-3-5"><span class="num">3.3.5</span>Drains</h4>
+    <p>There is 1 drain valve on the MSX70, located on the rear of the unit and labelled appropriately. It is manually operated via a ball valve.</p>
+    <div class="callout callout-warn">Prior to filling the tank, ensure the drain is closed. Always allow the heaters to cool before draining the tank.</div>
+
+    <h4 id="s3-3-6"><span class="num">3.3.6</span>Baskets</h4>
+    <p>A heavy-duty steel basket is supplied with the MSX70, with a load capacity of 100 kg. A variety of baskets can be used or custom-designed for specific cleaning applications — contact Kleentek for details.</p>
+  </div>
+</section>
+
+<!-- ============ 4. INSTALLATION ============ -->
+<section class="alt" id="s4">
+  <div class="wrap">
+    <h2 class="chapter"><span class="num">4.</span> Installation</h2>
+    <p class="chapter-intro">The system is vulnerable to damage if installed incorrectly, and improper installation or use can compromise operator safety. Kleentek does not accept responsibility for the results of improper installation or use.</p>
+    <div class="callout callout-warn">Improper use will void the warranty. Installation and commissioning should only be performed by personnel properly trained and qualified in their duties (electrical, electronic or otherwise) — the following is guidance only.</div>
+
+    <h3 id="s4-1"><span class="num">4.1</span>Receiving</h3>
+    <p>Upon receiving the machine, first inspect the packaging thoroughly for transit damage. If damage is found, notify the carrier immediately. If the package is intact, unpack carefully and inspect the contents.</p>
+
+    <h3 id="s4-2"><span class="num">4.2</span>Placement</h3>
+    <ol>
+      <li>Lift the machine carefully off the pallet/shipping packaging and ease it onto the floor.</li>
+      <li>Place the machine in a well-ventilated area.</li>
+      <li>Ensure the machine is level and positioned on a level surface.</li>
+      <li>Lock the castor wheels to secure its position.</li>
+      <li>Ensure there is sufficient space above the machine to open the lid.</li>
+      <li>Ensure there is sufficient space above the machine for the basket to be removed and replaced safely.</li>
+    </ol>
+
+    <h3 id="s4-3"><span class="num">4.3</span>Utility Connections</h3>
+    <p>This section covers all utility connection requirements including power and drainage.</p>
+
+    <h4 id="s4-3-1"><span class="num">4.3.1</span>Power Connection</h4>
+    <p>Electrical requirement: <strong>Single Phase, 10 Amp, 240 Volts, 50/60Hz.</strong> A mains cable with the appropriate plug is supplied with the machine.</p>
+    <ol>
+      <li>Connect the plug to the power outlet only.</li>
+      <li>Turn on the power supply from the power outlet.</li>
+      <li>The LCD touch screen panel will illuminate.</li>
+      <li>The red push button will illuminate.</li>
+    </ol>
+    <div class="callout callout-warn">Be sure the system is properly connected to a power supply matching the ratings on the serial tags, and that all ultrasonic generators are properly connected and grounded.</div>
+
+    <h4 id="s4-3-2"><span class="num">4.3.2</span>Drain Connection</h4>
+    <p>There is 1 drain on the MSX70 — the <strong>Main Tank Drain</strong>. Plumbing connections can be made to it; it is manually operated via a stainless steel ball valve. Take full account of all environmental, safety and other regulations when determining how to deal with drained liquids.</p>
+
+    <h3 id="s4-4"><span class="num">4.4</span>Machine Test &amp; Setup</h3>
+    <p>Due to possible transit damage, it is essential to conduct the following process when first setting up the MSX70.</p>
+    <p><strong>Setup:</strong></p>
+    <ol>
+      <li>Ensure all utility connections have been made correctly.</li>
+      <li>Ensure the power is connected.</li>
+      <li>Ensure all drains are closed.</li>
+    </ol>
+    <p><strong>Test:</strong></p>
+    <ol>
+      <li>Ensure the external water supply is providing water to the system (if an inlet/auto-fill valve is part of the specification).</li>
+      <li>While filling, carefully monitor the tank and cut off the water supply once the liquid reaches the designated level.</li>
+    </ol>
+    <div class="callout callout-warn">Do not add chemicals to the machine prior to conducting this setup procedure.</div>
+
+    <h3 id="s4-5"><span class="num">4.5</span>Filling the Tank</h3>
+    <p>If filling for the first time, follow the Machine Test &amp; Setup procedure above before ongoing operation.</p>
+    <ol>
+      <li>Fill the tank using a hose with water to approx. 75% full in the main tank.</li>
+      <li>Add the chemical solution to the water.</li>
+      <li>Top up the main tank to ensure the level sensor is covered.</li>
+    </ol>
+    <div class="callout callout-warn">Ensure all drains are closed prior to filling the main tank. Due care is required when conducting this process.</div>
+    <div class="callout callout-note">To ensure the MSX70 functions correctly, always ensure the level sensor in the main tank is completely covered by water/solution.</div>
+
+    <h3 id="s4-6"><span class="num">4.6</span>Placing Items in the Tank</h3>
+    <p>Always use the basket provided to contain all components being cleaned. If suspending a component from overhead, always ensure the basket is in the tank to prevent damage to the transducer blocks should the component be loaded incorrectly.</p>
+  </div>
+</section>
+
+<!-- ============ 5. SYSTEM OPERATION ============ -->
+<section id="s5">
+  <div class="wrap">
+    <h2 class="chapter"><span class="num">5.</span> System Operation</h2>
+
+    <h3 id="s5-1"><span class="num">5.1</span>Alarms</h3>
+    <p>Example alarms that may arise on the MSX70:</p>
+    <ol>
+      <li>Low level in main tank — heaters &amp; ultrasonics will not function.</li>
+      <li>Max water temperature reached — allow the solution to cool before continued use.</li>
+      <li>Heater contactor failure — check contactor.</li>
+      <li>Ultrasonic contactor failure — check contactor.</li>
+      <li>Liquid is above the set upper offset temperature — allow liquid to cool.</li>
+      <li>End of cycle / cycle complete — press reset button to continue.</li>
+      <li>Service is due — contact Kleentek on 1300 79 73 79.</li>
+    </ol>
+    <div class="callout callout-note">If an alarm is raised that isn't in this list, contact Kleentek on 1300 79 73 79.</div>
+
+    <h3 id="s5-2"><span class="num">5.2</span>Running an Ultrasonic Cleaning Cycle</h3>
+    <ol>
+      <li>Ensure the tank temperature is within range to commence a cleaning cycle.</li>
+      <li>Ensure the timer has been set to a time range associated with the cleaning application.</li>
+      <li>Ensure the tank liquid level is at the correctly marked point.</li>
+      <li>Ensure any parts are placed in the parts basket provided — items may be suspended in the tank, but the basket should still be placed in the tank to prevent damage to the ultrasonic transducer.</li>
+    </ol>
+
+    <h3 id="s5-3"><span class="num">5.3</span>Using the MiSonics Controller — Quick Guide</h3>
+    <p>How to use the Kleentek MiSonics controller.</p>
+
+    <h4 id="s5-3-1"><span class="num">5.3.1</span>Select a Program</h4>
+    <p>Video walkthrough: <a href="https://www.youtube.com/embed/gEgQN2Oe42M?rel=0" target="_blank" rel="noopener">youtube.com/embed/gEgQN2Oe42M</a>. Click any image below to enlarge.</p>
+    <ol>
+      <li>Main controller screen.</li>
+      <li>Press the MiSonics icon at the bottom of the page to access the program selection screen.</li>
+      <li>Program selection screen.</li>
+      <li>Press the MiSonics icon in the bottom-left of the screen to return to the main screen.</li>
+      <li>Select the desired program (Program 2 in this example).</li>
+      <li>Main screen displaying the settings for the newly selected program.</li>
+    </ol>
+    <div class="figure-row">
+      <figure class="figure"><img src="assets/screens/main-controller-1.jpg" alt="Main controller screen" onclick="openLightbox(this)"><figcaption>1. Main controller screen</figcaption></figure>
+      <figure class="figure"><img src="assets/screens/main-controller-2.jpg" alt="Pressing MiSonics icon" onclick="openLightbox(this)"><figcaption>2. Press MiSonics icon to open program selection</figcaption></figure>
+      <figure class="figure"><img src="assets/screens/main-controller-3.jpg" alt="Program selection screen" onclick="openLightbox(this)"><figcaption>3. Program selection screen</figcaption></figure>
+      <figure class="figure"><img src="assets/screens/main-controller-4.jpg" alt="Selecting a program" onclick="openLightbox(this)"><figcaption>4. Return to main screen</figcaption></figure>
+      <figure class="figure"><img src="assets/screens/main-controller-5.jpg" alt="Program 2 selected" onclick="openLightbox(this)"><figcaption>5. Program 2 selected</figcaption></figure>
+      <figure class="figure"><img src="assets/screens/main-controller-6.jpg" alt="Main screen with new program settings" onclick="openLightbox(this)"><figcaption>6. Main screen — new program's settings</figcaption></figure>
+    </div>
+
+    <h4 id="s5-3-2"><span class="num">5.3.2</span>Edit a Program</h4>
+    <p>Process runs left to right. Click the image to enlarge.</p>
+    <div class="figure figure-wide"><img src="assets/screens/edit-program.jpg" alt="Edit a program sequence" onclick="openLightbox(this)"></div>
+
+    <h4 id="s5-3-3"><span class="num">5.3.3</span>Deactivating the Lid Sensor</h4>
+    <p>Process runs left to right. Click the image to enlarge.</p>
+    <div class="figure figure-wide"><img src="assets/screens/deactivate-lid.jpg" alt="Deactivate lid sensor sequence" onclick="openLightbox(this)"></div>
+
+    <h4 id="s5-3-4"><span class="num">5.3.4</span>Activating the Lid Sensor</h4>
+    <p>Process runs left to right. Click the image to enlarge.</p>
+    <div class="figure figure-wide"><img src="assets/screens/activate-lid.jpg" alt="Activate lid sensor sequence" onclick="openLightbox(this)"></div>
+
+    <h4 id="s5-3-5"><span class="num">5.3.5</span>Warning / Error Screens</h4>
+    <div class="figure-row">
+      <figure class="figure"><img src="assets/screens/warn-low-level.jpg" alt="Low tank level warning" onclick="openLightbox(this)"><figcaption><strong>Low Tank Level</strong> — action: fill the tank to cover the level sensor.</figcaption></figure>
+      <figure class="figure"><img src="assets/screens/warn-lid-open.jpg" alt="Lid open warning" onclick="openLightbox(this)"><figcaption><strong>Lid Open</strong> — action: close the lid to commence the ultrasonic program.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. MAINTENANCE ============ -->
+<section class="alt" id="s6">
+  <div class="wrap">
+    <h2 class="chapter"><span class="num">6.</span> Maintenance</h2>
+
+    <h3 id="s6-1"><span class="num">6.1</span>Preventative Maintenance</h3>
+    <p>Because of the nature of the system, minimal preventive maintenance is required. Overall system operation is enhanced by regularly maintaining: the wash tank and the liquid level sensor probe.</p>
+
+    <h3 id="s6-2"><span class="num">6.2</span>Draining the Tank</h3>
+    <p>The drain is manually operated through a stainless steel ball valve.</p>
+    <div class="callout callout-note">Some maintenance steps in the source manual reference a weir/oil-skimming system fitted to other MSX models — the Single Tank Version covered here does not have a weir or filtration system (see Section 1).</div>
+
+    <h3 id="s6-3"><span class="num">6.3</span>Heater Replacement</h3>
+    <ol>
+      <li>Drain the tank.</li>
+      <li>Turn off and lock out power to the system.</li>
+      <li>Remove the supply wires (use appropriate electrical methods and adhere to electrical safety at all times).</li>
+      <li>Check the heater with an ohmmeter.</li>
+      <li>Unscrew the heater element and remove it.</li>
+      <li>Install the replacement heater element.</li>
+      <li>Replace the supply wires.</li>
+      <li>Reconnect power to the system.</li>
+    </ol>
+    <div class="callout callout-warn">If the element was recently in use, allow it to cool before handling.</div>
+  </div>
+</section>
+
+<!-- ============ 7. ULTRASONIC CLEANING ============ -->
+<section id="s7">
+  <div class="wrap">
+    <h2 class="chapter"><span class="num">7.</span> Ultrasonic Cleaning</h2>
+    <p>Ultrasonic energy is sound beyond the range of human hearing — generally frequencies above 16,000 cycles per second (16 kHz). When a sound wave travels through a liquid, if it's strong enough it tears the liquid apart, forming tiny vacuum pockets called <strong>cavitation bubbles</strong>. These form during the negative-pressure part of the wave and collapse during the high-pressure part of the following wave, generating extremely high pressures and temperatures for a brief moment in a small volume of liquid.</p>
+    <p>The implosion energy comes from: 1) compression from the ultrasonic wave, 2) compression from surface tension in the bubble, and 3) atmospheric pressure on the vacuum. If air is suspended in the liquid, it's released into the bubble and the implosion is greatly weakened — hence the importance of degassing (see 7.2).</p>
+    <p>Millions of cavitation implosions per second scrub the surface of any immersed object — faster and finer than any other scrubbing method, and able to reach into blind holes, complex shapes and surface pores. Cavitation is often strong enough to break the ionic bonds holding insoluble contaminants to a surface, and works particularly well with detergents, surfactants, terpenes, and aqueous/non-aqueous compounds.</p>
+
+    <h3 id="s7-1"><span class="num">7.1</span>Temperature</h3>
+    <p>Temperature has a dramatic effect on the cleaning process — generally, higher temperature means higher cavitation intensity and better cleaning, as long as it's not too close to the liquid's boiling point. Temperature also affects the speed and effectiveness of chemical reactions (a caustic/water solution keeps increasing in chemical effectiveness right up to its boiling point). Some chemicals are designed for lower temperatures — running these too hot can cause chemical breakdown and ineffective cleaning. Contact Kleentek if you need help finding the best combination of chemistry, temperature and procedure.</p>
+
+    <h3 id="s7-2"><span class="num">7.2</span>Degassing</h3>
+    <p>Liquids containing dissolved gas produce low cavitation intensity — the gas cushions the bubble's implosion. To eliminate dissolved gas:</p>
+    <ol>
+      <li>Heat the liquid a little higher than the planned operating temperature (warmer liquid retains less suspended gas).</li>
+      <li>Add a detergent/cleaner with a wetting agent to speed up degassing.</li>
+      <li>Run the ultrasonics for at least 10 minutes until air bubbles are no longer visible.</li>
+    </ol>
+
+    <h3 id="s7-3"><span class="num">7.3</span>Parts Exposure</h3>
+    <p>For a surface to be cleaned, it must be exposed to the ultrasonically-activated liquid — this requires proper placement in the parts basket. Common mistakes:</p>
+    <ul>
+      <li><strong>Trapped air pockets</strong> — e.g. a blind hole facing down traps a bubble. Avoid by positioning parts carefully or rotating them once submerged.</li>
+      <li><strong>Overloaded baskets</strong> — only the outer layers of a densely packed basket get properly cleaned. Clean large numbers of small parts a few at a time using shorter cycles.</li>
+    </ul>
+
+    <h3 id="s7-4"><span class="num">7.4</span>Parts Materials</h3>
+    <p>Materials that absorb sound generally aren't suitable for ultrasonic cleaning, as they reduce cavitation intensity. Ultrasonics is highly effective on metals, glasses, ceramics and many plastics; less effective on fabrics, "soft" plastics, sponges or rubber (with exceptions — e.g. ultrasonics can improve the efficiency of dyeing artificial fabrics).</p>
+
+    <h3 id="s7-5"><span class="num">7.5</span>Liquid Levels</h3>
+    <p>Ultrasonic sound waves reflect off the tank sides and the liquid surface, and this reflection behaves differently at different liquid depths. For critical cleaning applications, it may be necessary to experiment with liquid depth to optimise efficiency.</p>
+
+    <h3 id="s7-6"><span class="num">7.6</span>Cavitation Erosion</h3>
+    <p>Over time, cavitation's scrubbing action wears away the surface of any object in the tank — including the tank itself, though that typically takes years. Softer metals (e.g. aluminium) erode faster than hard metals (e.g. stainless steel). To protect parts and equipment from untimely erosion, don't leave the ultrasonics running or parts in the tank longer than necessary.</p>
+  </div>
+</section>
+
+<!-- ============ 8. SPARE PARTS ============ -->
+<section class="alt" id="s8">
+  <div class="wrap">
+    <h2 class="chapter"><span class="num">8.</span> Spare Parts</h2>
+
+    <h3 id="s8-1"><span class="num">8.1</span>Consumables</h3>
+    <p>Consumables and spares may vary based on the cleaning application. A summary of what may be required:</p>
+    <ul>
+      <li>Replacement filter cartridges / elements</li>
+      <li>Chemicals</li>
+      <li>Electrical contactors</li>
+      <li>Titration kit — for testing chemical solutions</li>
+    </ul>
+    <p>To order consumables, contact Kleentek on <strong>1300 79 73 79</strong>.</p>
+
+    <h3 id="s8-2"><span class="num">8.2</span>Long Term / Critical Items</h3>
+    <p>Certain components are considered critical for essential and efficient operation. Keep these on hand (where possible) to limit machine downtime:</p>
+    <ol>
+      <li>LCD control panel</li>
+      <li>TekFlow pump and pump seal kit</li>
+      <li>TekFlow heater</li>
+      <li>TekFlow filter cartridges (varies by cleaning application)</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 9. PM SCHEDULE ============ -->
+<section id="s9">
+  <div class="wrap">
+    <h2 class="chapter"><span class="num">9.</span> Preventative Maintenance (Specific)</h2>
+    <p class="chapter-intro">Maintenance described here should be performed at intervals matched to equipment usage, unless otherwise indicated.</p>
+
+    <h4>Keep it clean</h4>
+    <p>A preventive maintenance program relies on visual inspection — keep equipment clean and accessible. Ensure access panels aren't blocked by obstructions (walls, posts, etc). Inspect the unit for damage or misaligned parts. Keep castors locked during operation, and side panels in place to protect components and the operator.</p>
+    <div class="callout callout-warn">
+      To avoid electrical shock: unplug from the power source before opening side panels or cleaning the tank; keep the control panel and surrounding area clean and dry; do not operate the cleaner without proper grounding; do not attempt to disassemble the cleaner — high voltage inside is dangerous.
+    </div>
+
+    <h4>Recommended maintenance cycle</h4>
+    <table>
+      <tr><th style="width:110px;">Frequency</th><th>Tasks</th></tr>
+      <tr>
+        <td><span class="pill">Weekly</span></td>
+        <td>
+          <ul style="margin-bottom:0;">
+            <li>Visual inspection of the unit for damage or misaligned parts</li>
+            <li>Visual inspection for plumbing leaks</li>
+            <li>Clean out gross contaminant basket (or sooner if required)</li>
+            <li>Replace system filter(s), removing the filter housing from the machine</li>
+            <li>Check and maintain cleaning fluid and concentration at the correct level</li>
+            <li>Clean the exterior of the system with a damp cloth</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="pill">Fortnightly</span></td>
+        <td>
+          <ul style="margin-bottom:0;">
+            <li>Drain the tank and remove/wash out contaminant sludge from the base of the tank and weir</li>
+            <li>Wash the chamber interior with mild detergent, rinse with tap water — do not use an abrasive pad on the base of the cleaner</li>
+            <li>Wipe down and clean the sensors</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="pill">Monthly</span></td>
+        <td>
+          <ul style="margin-bottom:0;">
+            <li>Remove panels and check for plumbing leaks and pinhole tank leaks</li>
+            <li>Check all electrical wiring and connections are dry and corrosion-free</li>
+            <li>In humid environments, check for condensation or moisture ingress from dripping parts during transfer</li>
+            <li>Inspect the pump, ultrasonic transducers, heaters and sensors (proximity, level, temperature)</li>
+            <li>Clean the interior of the system with compressed air if required</li>
+            <li>Verify the LCD temperature reading using a thermometer</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+    <div class="callout callout-warn">Always disconnect the power cord from the wall plug before performing any preventative maintenance within any compartments. Electrical shock can cause serious injury.</div>
+
+    <h4>Filter Replacement</h4>
+    <p><em>Some models do not feature filtration.</em> Longevity of the cleaning fluid depends on effective filtration — the longer the solution lasts, the less it costs to operate the system. Filters become contaminated and clogged during operation; replacement frequency depends on usage and contaminant level. Weekly replacement is recommended for heavy use, or as required.</p>
+    <ol>
+      <li>Lower the level of the chemical solution in the main tank to below the level of the pump sparger.</li>
+      <li>Unscrew the fastening nut on top of the filter (tools may be required).</li>
+      <li>Hold the bottom of the filter housing while loosening the fastening nut, so it doesn't fall or drop off.</li>
+      <li>Empty the contents of the filter into a bucket or suitable container.</li>
+      <li>Remove the old filter from the housing and dispose of it correctly (see safe disposal of consumables).</li>
+      <li>Clean and rinse the filter housing, ensuring no contamination remains.</li>
+      <li>Insert a replacement filter cartridge.</li>
+      <li>Align the filter housing with its lid, ensuring the thread and fastening nut align, and tighten.</li>
+    </ol>
+
+    <h4>Cleaning the Tank</h4>
+    <p>A build-up of sludge on the base of the tank inhibits transducer output and can accelerate cavitation erosion around the transducers. This is a natural byproduct of ultrasonic cleaning and will eventually cause the tank to leak if left unmanaged. Institute regular tank cleaning to remove abrasive particles, drain the machine regularly, and remove sludge — frequency depends on the quantity of contaminant introduced. The tank wall can be washed down with a degreaser.</p>
+
+    <h4>Oil Skimming</h4>
+    <p><em>Some models do not feature oil skimming or filtration.</em> Certain cleaning applications remove oil as a contaminant, trapped in the triple weir system. Excess oil/grease can be drained manually from the drain labelled "Oil Skimmer", located on the bottom right-hand side of the machine. Wash the chamber interior with mild detergent and rinse with tap water — do not use an abrasive pad on the base of the cleaner. Clean the exterior of the tank with a damp cloth and a gentle degreaser.</p>
+  </div>
+</section>
+
+<!-- ============ DOWNLOADS ============ -->
+<section class="alt" id="downloads">
+  <div class="wrap">
+    <h2 class="chapter"><span class="num">⬇</span> Downloads</h2>
+    <p class="chapter-intro">Print-ready PDF version of this manual for keeping on hand at the machine.</p>
+    <a href="MSX70-Manual.pdf" download class="qs-card" style="display:flex;align-items:center;gap:16px;text-decoration:none;max-width:480px;">
+      <span style="font-size:28px;">📄</span>
+      <span>
+        <span style="display:block;font-weight:700;color:var(--navy);">MSX70 Ultrasonic Cleaner — Full Manual</span>
+        <span style="display:block;color:var(--muted);font-size:13px;">PDF · matches this page</span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong>Kleentek Australia</strong><br>
+      MSX70 Ultrasonic Cleaner — 1_en · Revision 4, 15 January 2026<br>
+      Copyright to Total Tank Solutions Pty Ltd t/a Kleentek, ABN 66 122 438 457
+    </div>
+    <div>
+      <strong>Support</strong><br>
+      1300 79 73 79 (AU) · +61 7 5479 0566 (Intl)<br>
+      <a href="MSX70-Manual.pdf">Download original PDF</a>
+    </div>
+  </div>
+</footer>
+
+<a href="#toc" class="totop" title="Back to top">↑</a>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+function openLightbox(imgEl){
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  lbImg.src = imgEl.src;
+  lb.classList.add('open');
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeLightbox();
+});
+</script>
+
+</body>
+</html>
