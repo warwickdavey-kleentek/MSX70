@@ -113,6 +113,32 @@ section{padding:54px 0 8px;scroll-margin-top:20px}
 }
 h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,3vw,33px);
   line-height:1.12;margin:0 0 14px;letter-spacing:-.01em}
+
+/* ---------- Collapsible sections ---------- */
+.sec-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  cursor:pointer;user-select:none;border-radius:8px;margin:0 -8px;padding:6px 8px;
+}
+.sec-head:hover{background:rgba(11,79,158,.05)}
+.sec-head:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.sec-head .sec-head-text{flex:1 1 auto;min-width:0}
+.sec-head h2{margin-bottom:0}
+.sec-head .chev{
+  flex:none;width:30px;height:30px;border-radius:8px;margin-top:2px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--white);border:1px solid var(--line);color:var(--blue);
+  font-size:13px;transition:transform .18s,border-color .18s;
+}
+.sec-head:hover .chev{border-color:#bcd4ee}
+section.collapsed .sec-head .chev{transform:rotate(-90deg)}
+.sec-body{margin-top:14px}
+section.collapsed .sec-body{display:none}
+section.collapsed{padding-bottom:20px}
+@media print{
+  .sec-head{cursor:default;padding:0;margin:0}
+  .sec-head .chev{display:none}
+  .sec-body{display:block !important;margin-top:0}
+}
 h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:20px;margin:34px 0 10px;color:var(--blue-deep)}
 h4{font-family:'Archivo',sans-serif;font-weight:600;font-size:15px;letter-spacing:.04em;
   text-transform:uppercase;color:var(--steel);margin:26px 0 8px}
@@ -401,8 +427,14 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
 
       <!-- Quick contents -->
       <section id="top" style="padding-top:40px">
-        <div class="kicker"><span class="num">★</span> How to Use This Manual</div>
-        <h2>Important — Read Before Operation</h2>
+        <div class="sec-head" role="button" tabindex="0" aria-expanded="true">
+          <div class="sec-head-text">
+          <div class="kicker"><span class="num">★</span> How to Use This Manual</div>
+          <h2>Important — Read Before Operation</h2>
+          </div>
+          <span class="chev">&#9662;</span>
+        </div>
+        <div class="sec-body">
         <p>This manual covers the <strong>installation, safe operation and maintenance</strong> of your Kleentek&nbsp;Australia MSX70 ultrasonic cleaner (single tank version — no weir or filtration system). It documents the MiSonics touch-panel controller, running a cleaning cycle, the alarm list and the routine servicing requirements.</p>
         <p>The instructions should be carefully studied by machine operators and service mechanics before the machine is operated. Operators should be familiar with Sections&nbsp;2–5 before running a cycle; supervisors and service staff should also read Sections&nbsp;6 and&nbsp;9. Keep this manual with the machine.</p>
         <div class="toc-grid">
@@ -412,13 +444,20 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
           <a class="toc-card" href="#s9"><span class="tc-n">SECTION 9</span><div class="tc-t">Preventative Maintenance</div><div class="tc-d">Weekly, fortnightly and monthly maintenance tasks to keep the machine running well.</div></a>
         </div>
         <div class="note info"><span class="t">Proprietary notice</span>The contents of this manual are proprietary information. No part may be transmitted, written or verbal, to any third party, or copied in any way, without the prior written consent of Kleentek&nbsp;Australia. All rights are reserved in respect of changes of design and technical data.</div>
+        </div>
       </section>
       <div class="section-rule"></div>
 
       <!-- QUICK START -->
       <section id="quickstart">
-        <div class="kicker"><span class="num">⚡</span> Quick Start</div>
-        <h2>Quick Start Guide</h2>
+        <div class="sec-head" role="button" tabindex="0" aria-expanded="true">
+          <div class="sec-head-text">
+          <div class="kicker"><span class="num">⚡</span> Quick Start</div>
+          <h2>Quick Start Guide</h2>
+          </div>
+          <span class="chev">&#9662;</span>
+        </div>
+        <div class="sec-body">
         <p>At-a-glance operation for trained operators. This is a summary only — read Sections&nbsp;1–9 for full detail, safety information and troubleshooting before operating the machine.</p>
         <div class="qs-grid">
 
@@ -498,26 +537,40 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
           </div>
 
         </div>
+        </div>
       </section>
       <div class="section-rule"></div>
 
       <!-- 1. INTRODUCTION -->
       <section id="s1">
-        <div class="kicker"><span class="num">1</span> Introduction</div>
-        <h2>MSX70 Ultrasonic Cleaner — User Manual</h2>
+        <div class="sec-head" role="button" tabindex="0" aria-expanded="true">
+          <div class="sec-head-text">
+          <div class="kicker"><span class="num">1</span> Introduction</div>
+          <h2>MSX70 Ultrasonic Cleaner — User Manual</h2>
+          </div>
+          <span class="chev">&#9662;</span>
+        </div>
+        <div class="sec-body">
         <p>This is the user manual for the <strong>MSX70 Ultrasonic Cleaner by Kleentek — Single Tank Version</strong>. This model does not contain a weir or filtration system.</p>
         <p>To ensure your machinery operates at its full potential it is essential that this manual is read and adhered to. This manual provides details on how to install, operate and safely maintain the MSX70, and provides guidelines on how to check its performance and routinely care for your equipment to ensure long-lasting and efficient operation.</p>
         <h3>Support</h3>
         <p>Should you have any problems, questions or require further information, please feel free to contact us.</p>
         <p><strong>Australia wide:</strong> 1300&nbsp;79&nbsp;73&nbsp;79 &nbsp;·&nbsp; <strong>International:</strong> +61&nbsp;7&nbsp;5479&nbsp;0566</p>
         <p style="font-size:13px;color:var(--steel)">Revision 4 — last modified 15 January 2026. MSX70 Ultrasonic Cleaner - 1_en. Copyright to Total Tank Solutions Pty Ltd t/a Kleentek, ABN 66 122 438 457.</p>
+        </div>
       </section>
       <div class="section-rule"></div>
 
       <!-- 2. SAFETY -->
       <section id="s2">
-        <div class="kicker"><span class="num">2</span> Safety</div>
-        <h2>Safety</h2>
+        <div class="sec-head" role="button" tabindex="0" aria-expanded="true">
+          <div class="sec-head-text">
+          <div class="kicker"><span class="num">2</span> Safety</div>
+          <h2>Safety</h2>
+          </div>
+          <span class="chev">&#9662;</span>
+        </div>
+        <div class="sec-body">
         <p>This section provides the information needed to ensure safe operation of the MSX70 Ultrasonic Cleaner.</p>
 
         <h3>2.1 System Documentation</h3>
@@ -559,13 +612,20 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
 
         <h4>2.3.3 Live Circuits</h4>
         <p>Observe all safety requirements at all times. Do not replace components or make internal adjustments while the machine is connected to the electrical supply. Electrical charge is retained by capacitors — danger may exist even with system power off. Always turn off the power and unplug, then discharge and ground a circuit before working on or around it. Adhere to all lockout/tag-out requirements.</p>
+        </div>
       </section>
       <div class="section-rule"></div>
 
       <!-- 3. SYSTEM DESCRIPTION -->
       <section id="s3">
-        <div class="kicker"><span class="num">3</span> System Description</div>
-        <h2>System Description</h2>
+        <div class="sec-head" role="button" tabindex="0" aria-expanded="true">
+          <div class="sec-head-text">
+          <div class="kicker"><span class="num">3</span> System Description</div>
+          <h2>System Description</h2>
+          </div>
+          <span class="chev">&#9662;</span>
+        </div>
+        <div class="sec-body">
         <p>The MSX70 Ultrasonic Cleaner is a self-contained ultrasonic cleaner featuring powerful ultrasonics and heating.</p>
 
         <h3>3.1 Equipment Specification</h3>
@@ -651,13 +711,20 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
 
         <h4>3.3.6 Baskets</h4>
         <p>A heavy-duty steel basket is supplied with the MSX70, with a load capacity of 100&nbsp;kg. A variety of baskets can be used or custom-designed for specific cleaning applications — contact Kleentek for details.</p>
+        </div>
       </section>
       <div class="section-rule"></div>
 
       <!-- 4. INSTALLATION -->
       <section id="s4">
-        <div class="kicker"><span class="num">4</span> Installation</div>
-        <h2>Installation</h2>
+        <div class="sec-head" role="button" tabindex="0" aria-expanded="true">
+          <div class="sec-head-text">
+          <div class="kicker"><span class="num">4</span> Installation</div>
+          <h2>Installation</h2>
+          </div>
+          <span class="chev">&#9662;</span>
+        </div>
+        <div class="sec-body">
         <p>The system is vulnerable to damage if installed incorrectly, and improper installation or use can compromise operator safety. Kleentek does not accept responsibility for the results of improper installation or use.</p>
         <div class="note warn"><span class="t">Trained personnel only</span>Improper use will void the warranty. Installation and commissioning should only be performed by personnel properly trained and qualified in their duties (electrical, electronic or otherwise) — the following is guidance only.</div>
 
@@ -717,13 +784,20 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
 
         <h3>4.6 Placing Items in the Tank</h3>
         <p>Always use the basket provided to contain all components being cleaned. If suspending a component from overhead, always ensure the basket is in the tank to prevent damage to the transducer blocks should the component be loaded incorrectly.</p>
+        </div>
       </section>
       <div class="section-rule"></div>
 
       <!-- 5. SYSTEM OPERATION -->
       <section id="s5">
-        <div class="kicker"><span class="num">5</span> System Operation</div>
-        <h2>System Operation</h2>
+        <div class="sec-head" role="button" tabindex="0" aria-expanded="true">
+          <div class="sec-head-text">
+          <div class="kicker"><span class="num">5</span> System Operation</div>
+          <h2>System Operation</h2>
+          </div>
+          <span class="chev">&#9662;</span>
+        </div>
+        <div class="sec-body">
 
         <h3>5.1 Alarms</h3>
         <p>Example alarms that may arise on the MSX70, their meaning and the action to take:</p>
@@ -780,13 +854,20 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
           <figure class="screen"><img src="assets/screens/warn-low-level.jpg" alt="Low tank level warning"><figcaption><b>Low tank level</b> Fill the tank to cover the level sensor</figcaption></figure>
           <figure class="screen"><img src="assets/screens/warn-lid-open.jpg" alt="Lid open warning"><figcaption><b>Lid open</b> Close the lid to commence the program</figcaption></figure>
         </div>
+        </div>
       </section>
       <div class="section-rule"></div>
 
       <!-- 6. MAINTENANCE -->
       <section id="s6">
-        <div class="kicker"><span class="num">6</span> Maintenance</div>
-        <h2>Maintenance</h2>
+        <div class="sec-head" role="button" tabindex="0" aria-expanded="true">
+          <div class="sec-head-text">
+          <div class="kicker"><span class="num">6</span> Maintenance</div>
+          <h2>Maintenance</h2>
+          </div>
+          <span class="chev">&#9662;</span>
+        </div>
+        <div class="sec-body">
 
         <h3>6.1 Preventative Maintenance</h3>
         <p>Because of the nature of the system, minimal preventive maintenance is required. Overall system operation is enhanced by regularly maintaining: the wash tank and the liquid level sensor probe.</p>
@@ -807,13 +888,20 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
           <li>Reconnect power to the system.</li>
         </ol>
         <div class="note warn"><span class="t">Let it cool</span>If the element was recently in use, allow it to cool before handling.</div>
+        </div>
       </section>
       <div class="section-rule"></div>
 
       <!-- 7. ULTRASONIC CLEANING -->
       <section id="s7">
-        <div class="kicker"><span class="num">7</span> Ultrasonic Cleaning</div>
-        <h2>Ultrasonic Cleaning</h2>
+        <div class="sec-head" role="button" tabindex="0" aria-expanded="true">
+          <div class="sec-head-text">
+          <div class="kicker"><span class="num">7</span> Ultrasonic Cleaning</div>
+          <h2>Ultrasonic Cleaning</h2>
+          </div>
+          <span class="chev">&#9662;</span>
+        </div>
+        <div class="sec-body">
         <p>Ultrasonic energy is sound beyond the range of human hearing — generally frequencies above 16,000 cycles per second (16 kHz). When a sound wave travels through a liquid, if it's strong enough it tears the liquid apart, forming tiny vacuum pockets called <strong>cavitation bubbles</strong>. These form during the negative-pressure part of the wave and collapse during the high-pressure part of the following wave, generating extremely high pressures and temperatures for a brief moment in a small volume of liquid.</p>
         <p>The implosion energy comes from: compression from the ultrasonic wave, compression from surface tension in the bubble, and atmospheric pressure on the vacuum. If air is suspended in the liquid, it's released into the bubble and the implosion is greatly weakened — hence the importance of degassing (see 7.2).</p>
         <p>Millions of cavitation implosions per second scrub the surface of any immersed object — faster and finer than any other scrubbing method, and able to reach into blind holes, complex shapes and surface pores. Cavitation is often strong enough to break the ionic bonds holding insoluble contaminants to a surface, and works particularly well with detergents, surfactants, terpenes, and aqueous/non-aqueous compounds.</p>
@@ -844,13 +932,20 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
 
         <h3>7.6 Cavitation Erosion</h3>
         <p>Over time, cavitation's scrubbing action wears away the surface of any object in the tank — including the tank itself, though that typically takes years. Softer metals (e.g. aluminium) erode faster than hard metals (e.g. stainless steel). To protect parts and equipment from untimely erosion, don't leave the ultrasonics running or parts in the tank longer than necessary.</p>
+        </div>
       </section>
       <div class="section-rule"></div>
 
       <!-- 8. SPARE PARTS -->
       <section id="s8">
-        <div class="kicker"><span class="num">8</span> Spare Parts</div>
-        <h2>Spare Parts</h2>
+        <div class="sec-head" role="button" tabindex="0" aria-expanded="true">
+          <div class="sec-head-text">
+          <div class="kicker"><span class="num">8</span> Spare Parts</div>
+          <h2>Spare Parts</h2>
+          </div>
+          <span class="chev">&#9662;</span>
+        </div>
+        <div class="sec-body">
 
         <h3>8.1 Consumables</h3>
         <p>Consumables and spares may vary based on the cleaning application. A summary of what may be required:</p>
@@ -870,13 +965,20 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
           <li>TekFlow heater</li>
           <li>TekFlow filter cartridges (varies by cleaning application)</li>
         </ol>
+        </div>
       </section>
       <div class="section-rule"></div>
 
       <!-- 9. PREVENTATIVE MAINTENANCE (SPECIFIC) -->
       <section id="s9">
-        <div class="kicker"><span class="num">9</span> Preventative Maintenance</div>
-        <h2>Preventative Maintenance (Specific)</h2>
+        <div class="sec-head" role="button" tabindex="0" aria-expanded="true">
+          <div class="sec-head-text">
+          <div class="kicker"><span class="num">9</span> Preventative Maintenance</div>
+          <h2>Preventative Maintenance (Specific)</h2>
+          </div>
+          <span class="chev">&#9662;</span>
+        </div>
+        <div class="sec-body">
         <p>Maintenance described here should be performed at intervals matched to equipment usage, unless otherwise indicated.</p>
 
         <h4>Keep It Clean</h4>
@@ -921,13 +1023,20 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
 
         <h4>Oil Skimming</h4>
         <p><em>Some models do not feature oil skimming or filtration.</em> Certain cleaning applications remove oil as a contaminant, trapped in the triple weir system. Excess oil/grease can be drained manually from the drain labelled "Oil Skimmer", located on the bottom right-hand side of the machine. Wash the chamber interior with mild detergent and rinse with tap water — do not use an abrasive pad on the base of the cleaner. Clean the exterior of the tank with a damp cloth and a gentle degreaser.</p>
+        </div>
       </section>
       <div class="section-rule"></div>
 
       <!-- 10. DOWNLOAD -->
       <section id="s10" class="no-print">
-        <div class="kicker"><span class="num">10</span> Download</div>
-        <h2>Complete Manual (PDF)</h2>
+        <div class="sec-head" role="button" tabindex="0" aria-expanded="true">
+          <div class="sec-head-text">
+          <div class="kicker"><span class="num">10</span> Download</div>
+          <h2>Complete Manual (PDF)</h2>
+          </div>
+          <span class="chev">&#9662;</span>
+        </div>
+        <div class="sec-body">
         <p>Download the entire manual as a single, print-ready A4 PDF.</p>
         <div class="dl-grid">
           <a class="dl-card" href="MSX70-Manual.pdf" download>
@@ -935,6 +1044,7 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
             <span><span class="dl-t">MSX70 Operating &amp; Service Manual</span><span class="dl-m">Full manual · A4</span></span>
             <span class="arrow">↓</span>
           </a>
+        </div>
         </div>
       </section>
 
@@ -1003,6 +1113,38 @@ figure.screen img{width:auto;max-width:100%;max-height:340px;margin:0 auto;backg
   });
   lb.addEventListener('click',close);              // click anywhere (backdrop or image) closes
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+
+// Collapsible sections — click a section heading to collapse/expand it
+(function(){
+  function toggle(sec){
+    var collapsed=sec.classList.toggle('collapsed');
+    var head=sec.querySelector('.sec-head');
+    if(head) head.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+  }
+  function expand(sec){
+    sec.classList.remove('collapsed');
+    var head=sec.querySelector('.sec-head');
+    if(head) head.setAttribute('aria-expanded','true');
+  }
+  document.querySelectorAll('section > .sec-head').forEach(function(head){
+    var sec=head.closest('section');
+    head.addEventListener('click',function(){ toggle(sec); });
+    head.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(sec); }
+    });
+  });
+  // Jumping to a section (sidebar, mobile nav, TOC or download cards) should reveal it
+  function expandTarget(hash){
+    if(!hash) return;
+    var sec=document.getElementById(hash.replace(/^#/,''));
+    if(sec && sec.tagName==='SECTION') expand(sec);
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(){ expandTarget(a.getAttribute('href')); });
+  });
+  window.addEventListener('hashchange',function(){ expandTarget(location.hash); });
+  if(location.hash) expandTarget(location.hash);
 })();
 </script>
 </body>
